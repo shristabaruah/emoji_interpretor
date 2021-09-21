@@ -2,11 +2,20 @@ import React, { useState } from "react";
 import "./styles.css";
 
 var emojiDictionary = {
-  "🏜️": "desert",
-  "🏠 ": "house",
-  "🏥": "hospital",
-  "⛲": "fountain",
-  "⛰️": "mountain"
+  "☕️": "coffee",
+  "🍷 ": "Red Wine",
+  "🍕": "Pizza",
+  "🍚": "Cooked Rice",
+  "🍝": "Sphagetti",
+  "🍺": "Beer Mug",
+  "🍣": "Shusi",
+  "🍤": "Fried Shrimp",
+  "🍟": "French-Fries",
+  "🍞": "Bread",
+  "🍩": "Doughnut",
+  "🍻": "Beer mugs",
+  "🍮": "Custard",
+  "🍨": "Ice-cream"
 };
 
 var emojisWeKnow = Object.keys(emojiDictionary);
@@ -21,25 +30,33 @@ export default function App() {
     var meaning = emojiDictionary[userInput];
 
     if (meaning === undefined) {
-      meaning = "we don't have this emoji in our database.";
+      meaning = "We don't have this Foodoji in our database.";
     }
     setMeaning(meaning);
   }
 
   function emojiClickHandler(emoji) {
-    // processing
     var meaning = emojiDictionary[emoji];
-    setMeaning(meaning); // react call to show output
+    setMeaning(meaning);
   }
   return (
     <div className="App">
-      <h1>Travel & Places emoji interpreter</h1>
+      <h1>Foodoji</h1>
 
-      <input onChange={emojiInputHandler} />
+      <input
+        onChange={emojiInputHandler}
+        placeholder={
+          "Paste the Food emoji or Click one of the following emoji below"
+        }
+      />
 
-      <h2> {meaning} </h2>
+      <h2>
+        {""}
+        <div style={{ fontWeight: "bolder" }}>{meaning} </div>
+        {""}
+      </h2>
 
-      <h3> emoji's we know right now </h3>
+      <h3> Emoji's we know!! </h3>
       {emojisWeKnow.map(function (emoji) {
         return (
           <span
